@@ -30,6 +30,16 @@ class CityRepository {
         }
     }
 
+    async getAllCities() {
+        try {
+            const cities = await City.findAll();
+            return cities;
+        } catch(error) {
+            console.log("something went wrong in the repository layer");
+            throw{error};
+        }
+    }
+
     async updateCity(cityId, data) {
         try {
             //The approach below works but doesn't return the updated city
