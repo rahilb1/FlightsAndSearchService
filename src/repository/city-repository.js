@@ -31,7 +31,7 @@ class CityRepository {
     }
 
     async updateCity(cityId, data) {
-        const city = await City.update(data, { where: { id: cityId } });
+        const city = await City.update(data, { where: { id: cityId } }); 
     }
 
 }
