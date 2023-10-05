@@ -1,10 +1,11 @@
 # Welcome to Flights Service
 
 ## Project Setup
+
 - Clone the project to your local system
 - Execute `npm install` on the same path as of your root directory of the downloaded project
 - Create a `.env` file in the root directory and add the following environment variable
-    - `PORT = 3000`
+  - `PORT = 3000`
 - Inside the `src/config` folder, create a `config.json` file and add the following code
 
 ```
@@ -20,5 +21,23 @@
 ```
 
 - Once you have added your db config as listed above, from the src folder, execute `npx sequelize db:create`
-and then execute `npx sequelize db:migrate`
+  and then execute `npx sequelize db:migrate`
+
 ```
+
+## DB Design
+  - Airplane Table
+  - Flight
+  - Airport
+  - City
+
+## Tables
+
+### City -> id, name, created_at, updated_at
+### Airport -> id, name, address, city_id, created_at, updated_at
+    Relationship -> City has many airports (one to many)
+```
+
+npx sequelize model:generate --name Airport --attributes name:String,address:String,cityId:integer
+```
+
