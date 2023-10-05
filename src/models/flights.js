@@ -1,5 +1,7 @@
-"use strict";
-const { Model } = require("sequelize");
+'use strict';
+const {
+  Model
+} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Flights extends Model {
     /**
@@ -11,50 +13,44 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Flights.init(
-    {
-      flightNumber: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-      },
-      airplaneId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      departureAirportId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      arrivalAirportId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      arrivalTime: {
-        type: DataTypes.DATE,
-        allowNull: false,
-      },
-      departureTime: {
-        type: DataTypes.DATE,
-        allowNull: false,
-      },
-      price: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      boardingGate: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      totalSeats: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
+  Flights.init({
+    flightNumber: {
+      type:DataTypes.STRING,
+      allowNull: false,
+      unique: true
     },
-    {
-      sequelize,
-      modelName: "Flights",
+    airplaneId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    departureAirportId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    arrivalAirportId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    arrivalTime: {
+      allowNull: false,
+      type: DataTypes.DATE
+    },
+    departureTime: {
+      allowNull: false,
+      type: DataTypes.DATE
+    },
+    price: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    boardingGate: DataTypes.STRING,
+    totalSeats: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     }
-  );
+  }, {
+    sequelize,
+    modelName: 'Flights',
+  });
   return Flights;
 };
