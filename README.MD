@@ -1,5 +1,7 @@
 # Welcome to Flights Service
 
+## [Design Doc](https://docs.google.com/document/d/1kM0kAMGGTRFmOLu3VKSPxeqk23e99Vs0/edit?usp=share_link&ouid=106067612533972187789&rtpof=true&sd=true)
+
 ## Project Setup
 
 - Clone the project to your local system
@@ -24,7 +26,6 @@
   and then execute `npx sequelize db:migrate`
 
 ```
-
 ## DB Design
   - Airplane Table
   - Flight
@@ -37,7 +38,8 @@
 ### Airport -> id, name, address, city_id, created_at, updated_at
     Relationship -> City has many airports (one to many)
 ```
-
+- To add a new model using sequelize, we can use
+```
 npx sequelize model:generate --name Airport --attributes name:String,address:String,cityId:integer
 ```
 
